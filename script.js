@@ -1,5 +1,5 @@
-// Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY_HERE"); // You'll need to get this from EmailJS
+// Initialize EmailJS (disabled for skeleton demo)
+// emailjs.init("YOUR_PUBLIC_KEY_HERE");
 
 let selectedDate = null;
 let currentMonth = new Date().getMonth();
@@ -7,6 +7,8 @@ let currentYear = new Date().getFullYear();
 
 // Calendar functionality
 function initCalendar() {
+    // Only render when calendar exists on the page
+    if (!document.getElementById("calendarDays")) return;
     renderCalendar(currentMonth, currentYear);
 }
 
@@ -23,7 +25,10 @@ function renderCalendar(month, year) {
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
-    document.getElementById("monthYear").textContent = `${monthNames[month]} ${year}`;
+    const monthYearEl = document.getElementById("monthYear");
+    if (monthYearEl) {
+        monthYearEl.textContent = `${monthNames[month]} ${year}`;
+    }
 
     const calendarDaysContainer = document.getElementById("calendarDays");
     calendarDaysContainer.innerHTML = "";
@@ -81,26 +86,33 @@ function selectDate(element, day, month, year) {
 }
 
 // Previous/Next month buttons
-document.getElementById("prevMonth").addEventListener("click", () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    }
-    renderCalendar(currentMonth, currentYear);
-});
+const prevMonthEl = document.getElementById("prevMonth");
+if (prevMonthEl) {
+    prevMonthEl.addEventListener("click", () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+    });
+}
 
-document.getElementById("nextMonth").addEventListener("click", () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    renderCalendar(currentMonth, currentYear);
-});
+const nextMonthEl = document.getElementById("nextMonth");
+if (nextMonthEl) {
+    nextMonthEl.addEventListener("click", () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+    });
+}
 
 // Form submission
-document.getElementById("bookingForm").addEventListener("submit", async (e) => {
+const bookingFormEl = document.getElementById("bookingForm");
+if (bookingFormEl) bookingFormEl.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Validate date selection
