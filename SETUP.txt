@@ -1,0 +1,168 @@
+# TherapyHub - Therapy Scheduling Website
+## Setup Guide for Email Configuration
+
+### Features Included:
+✓ Interactive Calendar (date selection, prevents past dates)
+✓ User Details Form (name, email, phone, therapy type, time, notes)
+✓ Navigation with smooth scrolling (Home, Services, About, Contact)
+✓ Services Section (Individual, Couples, Family, Group)
+✓ About Us Section with key features
+✓ Contact Information Section
+✓ Responsive Design (works on mobile, tablet, desktop)
+✓ Email Integration Ready
+
+---
+
+## How to Set Up Email Functionality
+
+### Step 1: Create a Free EmailJS Account
+1. Go to https://www.emailjs.com/
+2. Sign up for a free account
+3. Verify your email
+
+### Step 2: Set Up Your Email Service
+1. In EmailJS dashboard, go to "Email Services"
+2. Click "Add New Service"
+3. Select "Gmail" (or your preferred provider)
+4. Follow the authentication steps to connect your Gmail account
+5. **Note the Service ID** (you'll need this)
+
+### Step 3: Create an Email Template
+1. Go to "Email Templates" in EmailJS dashboard
+2. Click "Create New Template"
+3. Use these settings:
+   - **To Email:** {{to_email}}
+   - **From Name:** TherapyHub
+   - **Subject:** Your Therapy Appointment Confirmation - {{appointment_date}}
+   - **Template Body:**
+     ```
+     Hello {{user_name}},
+
+     Your therapy appointment has been successfully booked!
+
+     APPOINTMENT DETAILS:
+     ==================
+     Name: {{user_name}}
+     Email: {{user_email}}
+     Phone: {{user_phone}}
+     Therapy Type: {{therapy_type}}
+     Date: {{appointment_date}}
+     Time: {{appointment_time}}
+     Notes: {{user_message}}
+
+     If you need to reschedule or have any questions, please contact us.
+
+     Best regards,
+     TherapyHub Team
+     ```
+4. **Note the Template ID** (you'll need this)
+
+### Step 4: Get Your Public Key
+1. Go to "Account" → "API Keys" in EmailJS dashboard
+2. Copy your **Public Key**
+
+### Step 5: Update script.js
+1. Open `script.js`
+2. Find the line: `emailjs.init("YOUR_PUBLIC_KEY_HERE");`
+3. Replace `YOUR_PUBLIC_KEY_HERE` with your actual Public Key
+
+4. Find the line: `emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", emailParams);`
+5. Replace:
+   - `YOUR_SERVICE_ID` with your Service ID
+   - `YOUR_TEMPLATE_ID` with your Template ID
+
+### Example (after replacement):
+```javascript
+emailjs.init("1a2b3c4d5e6f7g8h9i");
+...
+emailjs.send("gmail_1a2b3c", "template_xyz123", emailParams);
+```
+
+---
+
+## File Structure
+```
+THERAPHY WEBSITE/
+├── index.html          (Main HTML file with all sections)
+├── style.css          (All styling and responsive design)
+├── script.js          (Calendar and form functionality)
+└── SETUP.txt          (This file)
+```
+
+---
+
+## Features Explained
+
+### Calendar
+- Shows current month by default
+- Navigate between months with arrow buttons
+- Automatically disables past dates
+- Click any available date to select it
+- Selected date appears in the form
+
+### Form Fields
+- **Full Name** - Required
+- **Email** - Required, used for confirmation
+- **Phone** - Required
+- **Therapy Type** - Dropdown (Individual, Couples, Family, Group)
+- **Time** - 9 options from 9 AM to 5 PM
+- **Additional Notes** - Optional special requirements
+
+### Sections
+1. **Home** - Hero section with CTA
+2. **Services** - 4 service offerings
+3. **About Us** - Company info and features
+4. **Contact** - Contact details
+5. **Booking Form** - Main appointment form with calendar
+
+---
+
+## Testing the Form
+
+1. Open `index.html` in your browser
+2. Select a date from the calendar
+3. Fill in all required fields
+4. Click "Book Appointment"
+5. Check the email inbox for confirmation
+
+---
+
+## Future Enhancements
+
+Consider adding:
+- User authentication system
+- Therapist profiles and availability
+- Payment integration
+- Email reminders (24 hours before)
+- SMS notifications
+- Admin dashboard to manage appointments
+- Database to store all bookings
+- Video consultation link in confirmation
+- Cancellation/Rescheduling feature
+- Client portal to view past appointments
+
+---
+
+## Troubleshooting
+
+### Email not sending?
+- Check that Public Key, Service ID, and Template ID are correct
+- Verify Gmail account is properly authenticated in EmailJS
+- Check browser console (F12) for error messages
+- Ensure form is filled completely
+
+### Calendar not showing?
+- Make sure script.js is loaded (check console for errors)
+- Verify index.html has correct path to script.js
+
+### Form validation issues?
+- Ensure all required fields have values before submitting
+- Check that a date is selected from the calendar
+
+---
+
+## Support
+For EmailJS issues: https://www.emailjs.com/docs/
+For general web questions: Check your browser's developer console (F12) for error messages
+
+Happy scheduling! 🎉
