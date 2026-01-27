@@ -60,6 +60,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
@@ -95,7 +100,21 @@
     <script src="script.js"></script>
     <script>
         // Initialize calendar on appointment page
-        document.addEventListener('DOMContentLoaded', initCalendar);
+        document.addEventListener('DOMContentLoaded', () => {
+            initCalendar();
+            
+            // Populate email and phone from session storage if available
+            const storedEmail = sessionStorage.getItem('userEmail');
+            const storedPhone = sessionStorage.getItem('userPhone');
+            
+            if (storedEmail) {
+                document.getElementById('email').value = storedEmail;
+            }
+            
+            if (storedPhone) {
+                document.getElementById('phone').value = storedPhone;
+            }
+        });
     </script>
 </body>
 </html>

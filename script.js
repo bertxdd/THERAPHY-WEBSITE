@@ -4,6 +4,57 @@
 let selectedDate = null;
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
+let modalEmail = null;
+let modalPhone = null;
+
+// Modal functionality
+const bookingModal = document.getElementById("bookingModal");
+const bookAppointmentBtn = document.getElementById("bookAppointmentBtn");
+const closeModalBtn = document.getElementById("closeModal");
+const modalForm = document.getElementById("modalForm");
+
+// Open modal when button is clicked
+if (bookAppointmentBtn) {
+    bookAppointmentBtn.addEventListener("click", () => {
+        bookingModal.classList.add("active");
+    });
+}
+
+// Close modal when close button is clicked
+if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+        bookingModal.classList.remove("active");
+    });
+}
+
+// Close modal when clicking outside of modal content
+window.addEventListener("click", (event) => {
+    if (event.target === bookingModal) {
+        bookingModal.classList.remove("active");
+    }
+});
+
+// Handle modal form submission
+if (modalForm) {
+    modalForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("modalEmail").value.trim();
+        const phone = document.getElementById("modalPhone").value.trim();
+
+        // Validate inputs
+        if (!email || !phone) {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        // Store in session storage to retrieve on appointment page
+        sessionStorage.setItem("userEmail", email);
+        sessionStorage.setItem("userPhone", phone);
+
+        // Navigate to appointment page
+        window.location.href = "appointment.html";
+    });
+}
 
 // Calendar functionality
 function initCalendar() {

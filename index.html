@@ -85,8 +85,16 @@
                     </div>
                 </div>
             </div>
-            <div class="cta-below-about">
-                <a class="btn-black" href="appointment.html">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Book an Appointment Section -->
+    <section class="book-appointment-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Take the first step towards your wellness journey. Schedule your appointment with one of our licensed therapists today and begin your path to better mental health.</p>
+            <div class="cta-button-wrapper">
+                <button class="btn-black btn-lg" id="bookAppointmentBtn">Book an Appointment</button>
             </div>
         </div>
     </section>
@@ -109,7 +117,25 @@
             <p>&copy; 2026 Sterling Counseling. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </footer>
-
+    <!-- Modal for Email and Phone -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3>Get Started</h3>
+            <p>Please provide your contact information to continue booking your appointment.</p>
+            <form id="modalForm" class="modal-form">
+                <div class="form-group">
+                    <label for="modalEmail">Email Address</label>
+                    <input type="email" id="modalEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Phone Number</label>
+                    <input type="tel" id="modalPhone" name="phone" required>
+                </div>
+                <button type="submit" class="btn-black">Continue to Booking</button>
+            </form>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
