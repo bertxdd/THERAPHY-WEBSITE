@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: #e8e8e8;
     background: #000000;
@@ -17,6 +19,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Alternating Section Styles */
@@ -121,6 +128,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
 .logo p {
@@ -154,11 +162,14 @@ body {
 
 /* Hero Section */
 .hero {
-    background: #ffffff;
-    color: #000000;
-    padding: 120px 20px;
+    background: url('sterlinghomebg.jpg') center center / cover no-repeat;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #333333;
     position: relative;
     overflow: hidden;
 }
@@ -170,7 +181,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.7) 100%);
     pointer-events: none;
 }
 
@@ -185,7 +196,8 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.2;
-    color: #000000;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero p {
@@ -194,7 +206,7 @@ body {
     letter-spacing: 0.4px;
     max-width: 700px;
     margin: 0 auto;
-    color: #333333;
+    color: #e8e8e8;
 }
 
 /* Main Content */
