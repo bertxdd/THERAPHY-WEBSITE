@@ -7,8 +7,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #ffffff;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #e8e8e8;
+    background: #000000;
     font-weight: 400;
     letter-spacing: 0.3px;
 }
@@ -19,17 +19,94 @@ body {
     padding: 0 20px;
 }
 
+/* Alternating Section Styles */
+.section-black {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+.section-black h2,
+.section-black h3,
+.section-black h4,
+.section-black h5 {
+    color: #ffffff !important;
+}
+
+.section-black p,
+.section-black .about-text p,
+.section-black .contact-info p,
+.section-black .service-card p {
+    color: #e8e8e8 !important;
+}
+
+.section-black .service-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%) !important;
+    border-color: #333333 !important;
+}
+
+.section-black .feature {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%) !important;
+}
+
+.section-white {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.section-white h2,
+.section-white h3,
+.section-white h4,
+.section-white h5 {
+    color: #000000 !important;
+}
+
+.section-white p,
+.section-white .about-text p,
+.section-white .contact-info p,
+.section-white .service-card p {
+    color: #333333 !important;
+}
+
+.section-white .service-card {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%) !important;
+    border-color: #ddd !important;
+    color: #000000 !important;
+}
+
+.section-white .service-card::before {
+    background: linear-gradient(to right, transparent, #000000, transparent) !important;
+}
+
+.section-white .service-card:hover {
+    border-color: #000000 !important;
+}
+
+.section-white .feature {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%) !important;
+    border-left-color: #000000 !important;
+    color: #000000 !important;
+}
+
+.section-white .feature h5,
+.section-white .feature p {
+    color: #000000 !important;
+}
+
+.section-white .contact-info strong {
+    color: #000000 !important;
+}
+
 /* Header */
 .header {
-    background: #000000;
-    color: white;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #e8e8e8;
     padding: 20px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #333333;
 }
 
 .header .container {
@@ -43,12 +120,14 @@ body {
     margin-bottom: 5px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    color: #ffffff;
 }
 
 .logo p {
     font-size: 12px;
-    opacity: 0.75;
+    opacity: 0.7;
     letter-spacing: 0.2px;
+    color: #cccccc;
 }
 
 .nav ul {
@@ -58,7 +137,7 @@ body {
 }
 
 .nav a {
-    color: white;
+    color: #e8e8e8;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -69,16 +148,17 @@ body {
 
 .nav a:hover {
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    color: #ffffff;
+    background: #ffffff;
+    color: #000000;
     padding: 120px 20px;
     text-align: center;
-    border-bottom: 2px solid #333;
+    border-bottom: 1px solid #ddd;
     position: relative;
     overflow: hidden;
 }
@@ -90,7 +170,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -105,14 +185,16 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.2;
+    color: #000000;
 }
 
 .hero p {
     font-size: 20px;
-    opacity: 0.9;
+    opacity: 0.85;
     letter-spacing: 0.4px;
     max-width: 700px;
     margin: 0 auto;
+    color: #333333;
 }
 
 /* Main Content */
@@ -132,8 +214,8 @@ body {
     background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid #404040;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333333;
     backdrop-filter: blur(5px);
 }
 
@@ -177,8 +259,8 @@ body {
 }
 
 .nav-btn:hover {
-    background: transparent;
-    color: #ffffff;
+    background: #e8e8e8;
+    color: #000000;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
@@ -189,7 +271,7 @@ body {
     gap: 5px;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #ffffff;
+    color: #e8e8e8;
     text-align: center;
 }
 
@@ -204,32 +286,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #444;
+    border: 1px solid #333333;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
-    background: #2a2a2a;
-    color: #ffffff;
+    background: #252525;
+    color: #e8e8e8;
     font-size: 15px;
 }
 
 .calendar-day:hover:not(.disabled):not(.other-month) {
     border-color: #ffffff;
-    background: #3a3a3a;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    background: #333333;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
 .calendar-day.other-month {
-    color: #ccc;
+    color: #555555;
     cursor: default;
 }
 
 .calendar-day.disabled {
-    color: #ccc;
+    color: #555555;
     cursor: not-allowed;
-    background: #f5f5f5;
+    background: #1a1a1a;
 }
 
 .calendar-day.selected {
@@ -242,11 +324,11 @@ body {
 
 .selected-date {
     padding: 15px;
-    background: #2a2a2a;
+    background: #1a1a1a;
     border-left: 4px solid #ffffff;
     border-radius: 5px;
     text-align: center;
-    color: #ffffff;
+    color: #e8e8e8;
 }
 
 .selected-date p {
@@ -258,8 +340,8 @@ body {
     background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid #404040;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333333;
     backdrop-filter: blur(5px);
 }
 
@@ -285,7 +367,7 @@ body {
 .form-group label {
     margin-bottom: 12px;
     font-weight: 600;
-    color: #ffffff;
+    color: #e8e8e8;
     letter-spacing: 0.3px;
     display: block;
 }
@@ -294,13 +376,13 @@ body {
 .form-group select,
 .form-group textarea {
     padding: 14px 16px;
-    border: 2px solid #444;
+    border: 1px solid #333333;
     border-radius: 10px;
     font-family: inherit;
     font-size: 14px;
     transition: all 0.3s ease;
-    background: #2a2a2a;
-    color: #ffffff;
+    background: #252525;
+    color: #e8e8e8;
     letter-spacing: 0.2px;
 }
 
@@ -310,7 +392,7 @@ body {
     outline: none;
     border-color: #ffffff;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    background: #333333;
+    background: #2d2d2d;
 }
 
 .submit-btn,
@@ -328,14 +410,14 @@ body {
     display: inline-block;
     text-decoration: none;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .submit-btn:hover,
 .btn-black:hover {
-    background: transparent;
-    color: #ffffff;
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    background: #e8e8e8;
+    color: #000000;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
 }
 
@@ -371,9 +453,9 @@ body {
 
 /* Services Section */
 .services {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #000000;
     padding: 80px 20px;
-    border-top: 2px solid #333;
+    border-top: 1px solid #333333;
     position: relative;
 }
 
@@ -384,7 +466,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #333333, transparent);
 }
 
 .services h2 {
@@ -405,12 +487,12 @@ body {
 
 .service-card {
     background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-    color: #ffffff;
+    color: #e8e8e8;
     padding: 35px;
     border-radius: 16px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #404040;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333333;
     position: relative;
     overflow: hidden;
 }
@@ -422,13 +504,13 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #ffffff, transparent);
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
-    border-color: #666;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+    border-color: #ffffff;
 }
 
 .service-card h4 {
@@ -436,6 +518,7 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.3px;
+    color: #ffffff;
 }
 
 .service-card p {
@@ -447,7 +530,7 @@ body {
 
 /* About Section */
 .about {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: #ffffff;
     padding: 80px 20px;
     position: relative;
 }
@@ -459,12 +542,12 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #ddd, transparent);
 }
 
 .about h2 {
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 60px;
     font-size: 42px;
     font-weight: 700;
@@ -483,7 +566,7 @@ body {
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.9;
-    color: #e5e5e5;
+    color: #333333;
     letter-spacing: 0.3px;
 }
 
@@ -494,22 +577,22 @@ body {
 }
 
 .feature {
-    background: linear-gradient(135deg, #252525 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
     padding: 28px;
     border-radius: 12px;
-    border-left: 4px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .feature:hover {
-    border-left-color: #ffffff;
-    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+    border-left-color: #1a1a1a;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     transform: translateX(4px);
 }
 
 .feature h5 {
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 10px;
     font-size: 17px;
     font-weight: 700;
@@ -517,7 +600,7 @@ body {
 }
 
 .feature p {
-    color: #e5e5e5;
+    color: #333333;
     font-size: 15px;
     margin: 0;
     line-height: 1.6;
@@ -526,9 +609,9 @@ body {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #ffffff;
     padding: 80px 20px;
-    border-top: 2px solid #333;
+    border-top: 1px solid #ddd;
     position: relative;
 }
 
@@ -539,12 +622,12 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #ddd, transparent);
 }
 
 .contact h2 {
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 60px;
     font-size: 42px;
     font-weight: 700;
@@ -561,23 +644,23 @@ body {
 .contact-info p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #e5e5e5;
+    color: #333333;
     letter-spacing: 0.3px;
 }
 
 .contact-info strong {
-    color: #ffffff;
+    color: #000000;
     font-weight: 700;
 }
 
 /* Footer */
 .footer {
-    background: #000000;
-    color: white;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #e8e8e8;
     text-align: center;
     padding: 30px 20px;
-    border-top: 2px solid #333;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #333333;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
 }
 /* Modal Styles */
 .modal {
@@ -588,7 +671,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     animation: fadeIn 0.3s ease;
 }
 
@@ -609,10 +692,10 @@ body {
 
 .modal-content {
     background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-    border: 1px solid #404040;
+    border: 1px solid #333333;
     border-radius: 16px;
     padding: 50px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
     max-width: 450px;
     width: 90%;
     position: relative;
@@ -636,7 +719,7 @@ body {
     right: 20px;
     background: none;
     border: none;
-    color: #ffffff;
+    color: #e8e8e8;
     font-size: 32px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -648,7 +731,7 @@ body {
 }
 
 .modal-close:hover {
-    color: #e5e5e5;
+    color: #ffffff;
     transform: scale(1.1);
 }
 
@@ -661,7 +744,7 @@ body {
 }
 
 .modal-content p {
-    color: #e5e5e5;
+    color: #cccccc;
     margin-bottom: 30px;
     font-size: 15px;
     line-height: 1.6;
@@ -683,7 +766,7 @@ body {
 .modal-form label {
     margin-bottom: 10px;
     font-weight: 600;
-    color: #ffffff;
+    color: #e8e8e8;
     letter-spacing: 0.3px;
     display: block;
     font-size: 14px;
@@ -691,13 +774,13 @@ body {
 
 .modal-form input {
     padding: 14px 16px;
-    border: 2px solid #444;
+    border: 1px solid #333333;
     border-radius: 10px;
     font-family: inherit;
     font-size: 14px;
     transition: all 0.3s ease;
-    background: #2a2a2a;
-    color: #ffffff;
+    background: #252525;
+    color: #e8e8e8;
     letter-spacing: 0.2px;
 }
 
@@ -705,7 +788,7 @@ body {
     outline: none;
     border-color: #ffffff;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    background: #333333;
+    background: #2d2d2d;
 }
 
 .modal-form .btn-black {
@@ -715,10 +798,10 @@ body {
 
 /* Book an Appointment Section */
 .book-appointment-section {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #000000;
     padding: 100px 20px;
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
     position: relative;
 }
 
@@ -729,7 +812,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #333333, transparent);
 }
 
 .book-appointment-section::after {
@@ -739,7 +822,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #666, transparent);
+    background: linear-gradient(to right, transparent, #333333, transparent);
 }
 
 .book-appointment-section h2 {
@@ -754,7 +837,7 @@ body {
 
 .book-appointment-section p {
     text-align: center;
-    color: #e5e5e5;
+    color: #cccccc;
     margin-bottom: 40px;
     font-size: 18px;
     max-width: 700px;
@@ -775,6 +858,18 @@ body {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+/* Button variants for alternating sections */
+.section-white .btn-black {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.section-white .btn-black:hover {
+    background: #1a1a1a;
+    color: #ffffff;
 }
 
 /* Responsive Design */
