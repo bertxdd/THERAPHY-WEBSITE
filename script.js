@@ -1,6 +1,26 @@
 // Initialize EmailJS (disabled for skeleton demo)
 // emailjs.init("YOUR_PUBLIC_KEY_HERE");
 
+// Hamburger Menu Toggle
+const hamburgerMenu = document.getElementById("hamburgerMenu");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburgerMenu && navMenu) {
+    hamburgerMenu.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll("a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            hamburgerMenu.classList.remove("active");
+            navMenu.classList.remove("active");
+        });
+    });
+}
+
 let selectedDate = null;
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
