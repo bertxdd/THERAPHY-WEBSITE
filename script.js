@@ -1,5 +1,7 @@
-// Initialize EmailJS (disabled for skeleton demo)
-// emailjs.init("YOUR_PUBLIC_KEY_HERE");
+// Initialize EmailJS
+(function() {
+    emailjs.init("fY88p3qGKuNCZN9S_");
+})();
 
 // Hamburger Menu Toggle
 const hamburgerMenu = document.getElementById("hamburgerMenu");
@@ -58,7 +60,7 @@ window.addEventListener("click", (event) => {
 
 // Handle modal form submission
 if (modalForm) {
-    modalForm.addEventListener("submit", (e) => {
+    modalForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const fullName = document.getElementById("modalName").value.trim();
         const email = document.getElementById("modalEmail").value.trim();
@@ -75,8 +77,24 @@ if (modalForm) {
         sessionStorage.setItem("userEmail", email);
         sessionStorage.setItem("userPhone", phone);
 
-        // Navigate to appointment page
-        window.location.href = "appointment.html";
+        // Send details via EmailJS
+        const emailParams = {
+            user_name: fullName,
+            user_email: email,
+            user_phone: phone,
+            to_email: "padiosfranz2@gmail.com"
+        };
+
+        emailjs.send("service_qz6vh52", "template_hcx1ybd", emailParams)
+            .then(() => {
+                console.log("Lead sent successfully");
+            })
+            .catch((error) => {
+                console.error("EmailJS error:", error);
+            })
+            .finally(() => {
+                window.location.href = "appointment.html";
+            });
     });
 }
 
