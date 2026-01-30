@@ -141,6 +141,14 @@ function createDayElement(day, className) {
 }
 
 function selectDate(element, day, month, year) {
+    const tentativeDate = new Date(year, month, day);
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = tentativeDate.toLocaleDateString("en-US", options);
+    const confirmed = window.confirm(`Confirm appointment date: ${formattedDate}?`);
+    if (!confirmed) {
+        return;
+    }
+
     // Remove previous selection
     document.querySelectorAll(".calendar-day.selected").forEach(el => {
         el.classList.remove("selected");
@@ -150,10 +158,11 @@ function selectDate(element, day, month, year) {
     element.classList.add("selected");
 
     // Store selected date
-    selectedDate = new Date(year, month, day);
-    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = selectedDate.toLocaleDateString("en-US", options);
-    document.getElementById("displayDate").textContent = formattedDate;
+    selectedDate = tentativeDate;
+    const displayDateEl = document.getElementById("displayDate");
+    if (displayDateEl) {
+        displayDateEl.textContent = formattedDate;
+    }
 }
 
 // Previous/Next month buttons
