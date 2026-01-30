@@ -113,10 +113,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             initCalendar();
             
-            // Populate email and phone from session storage if available
+            // Populate name, email and phone from session storage if available
+            const storedName = sessionStorage.getItem('userName');
             const storedEmail = sessionStorage.getItem('userEmail');
             const storedPhone = sessionStorage.getItem('userPhone');
             
+            if (storedName) {
+                document.getElementById('fullName').value = storedName;
+            }
+
             if (storedEmail) {
                 document.getElementById('email').value = storedEmail;
             }

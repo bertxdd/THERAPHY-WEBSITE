@@ -60,16 +60,18 @@ window.addEventListener("click", (event) => {
 if (modalForm) {
     modalForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        const fullName = document.getElementById("modalName").value.trim();
         const email = document.getElementById("modalEmail").value.trim();
         const phone = document.getElementById("modalPhone").value.trim();
 
         // Validate inputs
-        if (!email || !phone) {
+        if (!fullName || !email || !phone) {
             alert("Please fill in all fields");
             return;
         }
 
         // Store in session storage to retrieve on appointment page
+        sessionStorage.setItem("userName", fullName);
         sessionStorage.setItem("userEmail", email);
         sessionStorage.setItem("userPhone", phone);
 
