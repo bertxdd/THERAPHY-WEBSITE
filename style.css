@@ -271,6 +271,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .calendar {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .calendar-header {
@@ -321,6 +322,80 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+}
+
+.date-confirm {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+}
+
+.date-confirm.active {
+    display: flex;
+}
+
+.date-confirm-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: #e8e8e8;
+    max-width: 320px;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.date-confirm-card h5 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.date-confirm-card p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #e8e8e8;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.confirm-btn {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn.primary {
+    background: #ffffff;
+    color: #000000;
+}
+
+.confirm-btn.primary:hover {
+    background: #e8e8e8;
+}
+
+.confirm-btn.secondary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.confirm-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .calendar-day {

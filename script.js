@@ -26,6 +26,8 @@ let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let modalEmail = null;
 let modalPhone = null;
+let pendingDate = null;
+let pendingElement = null;
 
 // Modal functionality
 const bookingModal = document.getElementById("bookingModal");
@@ -144,10 +146,27 @@ function selectDate(element, day, month, year) {
     const tentativeDate = new Date(year, month, day);
     const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
     const formattedDate = tentativeDate.toLocaleDateString("en-US", options);
-    const confirmed = window.confirm(`Confirm appointment date: ${formattedDate}?`);
-    if (!confirmed) {
-        return;
+
+    pendingDate = tentativeDate;
+    pendingElement = element;
+
+    const dateConfirmEl = document.getElementById("dateConfirm");
+    const dateConfirmTextEl = document.getElementById("confirmDateText");
+
+    if (dateConfirmTextEl) {
+        dateConfirmTextEl.textContent = formattedDate;
     }
+
+    if (dateConfirmEl) {
+        dateConfirmEl.classList.add("active");
+        dateConfirmEl.setAttribute("aria-hidden", "false");
+    } else {
+        applyConfirmedDate();
+    }
+}
+
+function applyConfirmedDate() {
+    if (!pendingDate || !pendingElement) return;
 
     // Remove previous selection
     document.querySelectorAll(".calendar-day.selected").forEach(el => {
@@ -155,13 +174,27 @@ function selectDate(element, day, month, year) {
     });
 
     // Add selection to clicked element
-    element.classList.add("selected");
+    pendingElement.classList.add("selected");
 
     // Store selected date
-    selectedDate = tentativeDate;
+    selectedDate = pendingDate;
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = selectedDate.toLocaleDateString("en-US", options);
     const displayDateEl = document.getElementById("displayDate");
     if (displayDateEl) {
         displayDateEl.textContent = formattedDate;
+    }
+
+    clearPendingDate();
+}
+
+function clearPendingDate() {
+    pendingDate = null;
+    pendingElement = null;
+    const dateConfirmEl = document.getElementById("dateConfirm");
+    if (dateConfirmEl) {
+        dateConfirmEl.classList.remove("active");
+        dateConfirmEl.setAttribute("aria-hidden", "true");
     }
 }
 
@@ -174,6 +207,7 @@ if (prevMonthEl) {
             currentMonth = 11;
             currentYear--;
         }
+        clearPendingDate();
         renderCalendar(currentMonth, currentYear);
     });
 }
@@ -186,7 +220,33 @@ if (nextMonthEl) {
             currentMonth = 0;
             currentYear++;
         }
+        clearPendingDate();
         renderCalendar(currentMonth, currentYear);
+    });
+}
+
+// Date confirm popup actions
+const dateConfirmYes = document.getElementById("confirmDateYes");
+const dateConfirmNo = document.getElementById("confirmDateNo");
+const dateConfirmEl = document.getElementById("dateConfirm");
+
+if (dateConfirmYes) {
+    dateConfirmYes.addEventListener("click", () => {
+        applyConfirmedDate();
+    });
+}
+
+if (dateConfirmNo) {
+    dateConfirmNo.addEventListener("click", () => {
+        clearPendingDate();
+    });
+}
+
+if (dateConfirmEl) {
+    dateConfirmEl.addEventListener("click", (event) => {
+        if (event.target === dateConfirmEl) {
+            clearPendingDate();
+        }
     });
 }
 
